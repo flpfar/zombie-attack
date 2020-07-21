@@ -1,11 +1,5 @@
-import Phaser from "phaser";
-
-const config = {
-  type: Phaser.AUTO,
-  width: 800,
-  height: 600,
-  scene: {}
-};
+import Phaser from 'phaser';
+import config from './config';
 
 const game = new Phaser.Game(config);
 

@@ -31,7 +31,9 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       CANVAS_RENDERER: JSON.stringify(true),
-      WEBGL_RENDERER: JSON.stringify(true)
+      WEBGL_RENDERER: JSON.stringify(true),
+      CANVAS_WIDTH: JSON.stringify(512),
+      CANVAS_HEIGHT: JSON.stringify(544),
     }),
     new HtmlWebpackPlugin({
       template: "./index.html"
