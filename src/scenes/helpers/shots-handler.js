@@ -9,11 +9,6 @@ const handleShots = (scene) => {
       shoot(scene);
     }
   }
-
-  for (let i = 0; i < scene.shots.getChildren().length; i += 1) {
-    const shot = scene.shots.getChildren()[i];
-    shot.update();
-  }
 };
 
 export default handleShots;

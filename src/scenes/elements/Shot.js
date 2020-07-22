@@ -16,7 +16,7 @@ class Shot extends Phaser.GameObjects.Sprite {
   }
 
   update() {
-    if (this.y < 2) {
+    if (this.y < 100) {
       this.destroy();
     }
   }

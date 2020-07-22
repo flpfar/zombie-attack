@@ -20,13 +20,23 @@ const createAnimations = (scene) => {
   });
 
   scene.anims.create({
-    key: 'zombie1-die_anim',
-    frames: scene.anims.generateFrameNumbers('zombie1-die', {
+    key: 'zombie1-move_anim',
+    frames: scene.anims.generateFrameNumbers('zombie1-move', {
       start: 0,
       end: 3,
     }),
-    frameRate: 10,
-    repeat: 1,
+    frameRate: 5,
+    repeat: -1,
+  });
+
+  scene.anims.create({
+    key: 'zombie2-move_anim',
+    frames: scene.anims.generateFrameNumbers('zombie2-move', {
+      start: 0,
+      end: 3,
+    }),
+    frameRate: 5,
+    repeat: -1,
   });
 };
 
