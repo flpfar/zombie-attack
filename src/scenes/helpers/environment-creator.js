@@ -1,4 +1,4 @@
-import gameSettings from '../game-settings';
+import gameSettings from '../../game-settings';
 
 const createBackground = (scene) => {
   scene.background = scene.add.tileSprite(0, 0, gameSettings.canvasWidth, gameSettings.canvasHeight, 'background');

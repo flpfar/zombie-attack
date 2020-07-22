@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-import { createBackground } from '../helpers/environment-creator';
+import { createBackground } from './helpers/environment-creator';
+import Player from './elements/Player';
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -8,10 +9,19 @@ class GameScene extends Phaser.Scene {
 
   create() {
     createBackground(this);
+
+    this.shot = this.add.sprite(50, 50, 'shot');
+    // this.player = this.add.sprite(50, 100, 'player-move');
+    this.zombie1 = this.add.sprite(150, 50, 'zombie1-die');
+    this.shot.play('shot_anim');
+    // this.player.play('player-move_anim');
+    this.zombie1.play('zombie1-die_anim');
+
+    this.player = new Player(this);
   }
 
   update() {
-    this.background.tilePositionY -= 0.5;
+    this.player.moveManager();
   }
 }
 

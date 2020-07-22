@@ -8,6 +8,12 @@ const config = {
   width: gameSettings.canvasWidth,
   height: gameSettings.canvasHeight,
   scene: [MainScene, GameScene],
+  physics: {
+    default: 'arcade',
+    arcade: {
+      debug: false,
+    },
+  },
 };
 
 export default config;
