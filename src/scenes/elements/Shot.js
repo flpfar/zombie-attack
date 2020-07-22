@@ -5,7 +5,7 @@ class Shot extends Phaser.GameObjects.Sprite {
     super(scene, playerPositionX + 10, playerPositionY - 100, 'shot');
 
     scene.add.existing(this);
-    this.play('shot_anim');
+    // this.play('shot_anim');
 
     // physics
     scene.physics.world.enableBody(this);

@@ -29,19 +29,25 @@ class GameScene extends Phaser.Scene {
       runChildUpdate: true,
     });
 
-    this.zombie1 = new Zombie(this, 'zombie1-move', 250);
-    this.zombie2 = new Zombie(this, 'zombie2-move', 150);
-    this.zombie3 = new Zombie(this, 'zombie1-move', 200);
-    this.zombie4 = new Zombie(this, 'zombie2-move', 300);
+    this.zombie1 = new Zombie(this, 'zombie1', 250);
+    this.zombie2 = new Zombie(this, 'zombie2', 150);
+    this.zombie3 = new Zombie(this, 'zombie1', 200);
+    this.zombie4 = new Zombie(this, 'zombie2', 300);
     this.player = new Player(this);
 
     this.spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.physics.add.overlap(this.shots, this.zombies, this.hitEnemy, null, this);
   }
 
   update() {
     this.player.moveManager();
 
     handleShots(this);
+  }
+
+  hitEnemy(shot, zombie) {
+    shot.destroy();
+    zombie.die();
   }
 }
 
