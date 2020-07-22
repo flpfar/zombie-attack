@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import backgroundImage from '../assets/images/background.jpg';
 
 class MainScene extends Phaser.Scene {
@@ -11,9 +12,6 @@ class MainScene extends Phaser.Scene {
 
   create() {
     this.scene.start('gameScene');
-  }
-
-  update() {
   }
 }
 

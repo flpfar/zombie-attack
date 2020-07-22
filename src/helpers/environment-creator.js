@@ -1,6 +1,12 @@
-const createBackground = (scene) => {
-  scene.background = scene.add.tileSprite(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, 'background');
-  scene.background.setOrigin(0, 0);
-}
+import gameSettings from '../game-settings';
 
-export { createBackground };
+const createBackground = (scene) => {
+  scene.background = scene.add.tileSprite(0, 0, gameSettings.canvasWidth, gameSettings.canvasHeight, 'background');
+  scene.background.setOrigin(0, 0);
+};
+
+const createMusic = () => {
+
+};
+
+export { createBackground, createMusic };

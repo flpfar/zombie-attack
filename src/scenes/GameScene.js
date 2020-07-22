@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import { createBackground } from '../helpers/environment-creator';
 
 class GameScene extends Phaser.Scene {
