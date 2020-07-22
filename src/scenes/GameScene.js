@@ -29,10 +29,10 @@ class GameScene extends Phaser.Scene {
       runChildUpdate: true,
     });
 
-    this.zombie1 = new Zombie(this, 'zombie1', 250);
-    this.zombie2 = new Zombie(this, 'zombie2', 150);
-    this.zombie3 = new Zombie(this, 'zombie1', 200);
-    this.zombie4 = new Zombie(this, 'zombie2', 300);
+    this.zombie1 = new Zombie(this, 'zombie1');
+    this.zombie2 = new Zombie(this, 'zombie2');
+    this.zombie3 = new Zombie(this, 'zombie1');
+    this.zombie4 = new Zombie(this, 'zombie2');
     this.player = new Player(this);
 
     this.spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -46,6 +46,7 @@ class GameScene extends Phaser.Scene {
   }
 
   hitEnemy(shot, zombie) {
+    if(zombie.isDead) return;
     shot.destroy();
     zombie.die();
   }

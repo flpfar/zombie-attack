@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import gameSettings from '../../game-settings';
 
 class Zombie extends Phaser.GameObjects.Sprite {
-  constructor(scene, zombie, score) {
+  constructor(scene, zombie) {
     const startPositionX = Phaser.Math.Between(25, gameSettings.canvasWidth - 25);
     const startPositionY = -100;
     super(scene, startPositionX, startPositionY, `${zombie}-move`);
@@ -17,6 +17,7 @@ class Zombie extends Phaser.GameObjects.Sprite {
     scene.zombies.add(this);
 
     this.anims.play(`${zombie}-move_anim`, true);
+    this.isDead = false;
     this.move();
   }
 
@@ -27,7 +28,7 @@ class Zombie extends Phaser.GameObjects.Sprite {
   }
 
   resetPos() {
-    this.y = 0;
+    this.y = -75;
     const randomX = Phaser.Math.Between(25, gameSettings.canvasWidth - 25);
     this.x = randomX;
   }
@@ -37,6 +38,7 @@ class Zombie extends Phaser.GameObjects.Sprite {
   }
 
   revive() {
+    this.isDead = false;
     this.anims.stop(null, false);
     this.anims.play(`${this.zombie}-move_anim`, true);
     this.resetPos();
@@ -44,12 +46,13 @@ class Zombie extends Phaser.GameObjects.Sprite {
   }
 
   die() {
+    this.isDead = true;
     this.anims.stop(null, false);
     this.anims.play(`${this.zombie}-die_anim`, true);
     this.body.velocity.y = 0;
 
     this.scene.time.addEvent({
-      delay: 1000,
+      delay: 2000,
       callback: this.revive,
       callbackScope: this,
       loop: false,
