@@ -7,13 +7,17 @@ class Player extends Phaser.GameObjects.Sprite {
     const startPositionY = gameSettings.canvasHeight - 75;
     super(scene, startPositionX, startPositionY, 'player-move');
     this.scene.add.existing(this);
+
+    // physics
     scene.physics.world.enableBody(this);
     this.body.setCollideWorldBounds(true);
+
+    // startPosition
     this.startPositionX = startPositionX;
     this.startPositionY = startPositionY;
 
+    // key controls
     this.cursorKeys = scene.input.keyboard.createCursorKeys();
-    this.spaceBar = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
   }
 
   moveManager() {
