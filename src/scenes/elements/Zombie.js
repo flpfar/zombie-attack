@@ -4,7 +4,7 @@ import gameSettings from '../../game-settings';
 class Zombie extends Phaser.GameObjects.Sprite {
   constructor(scene, zombie) {
     const startPositionX = Phaser.Math.Between(25, gameSettings.canvasWidth - 25);
-    const startPositionY = -100;
+    const startPositionY = -Phaser.Math.Between(100, 200);
     super(scene, startPositionX, startPositionY, `${zombie}-move`);
 
     this.zombie = zombie;
@@ -37,7 +37,8 @@ class Zombie extends Phaser.GameObjects.Sprite {
   }
 
   move() {
-    this.body.velocity.y = 100 + (100 / 10);
+    const randomY = Phaser.Math.Between(100, 150);
+    this.body.velocity.y = randomY;
   }
 
   revive() {

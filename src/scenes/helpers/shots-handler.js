@@ -5,7 +5,7 @@ const shoot = (scene) => new Shot(scene, scene.player.x, scene.player.y);
 
 const handleShots = (scene) => {
   if (Phaser.Input.Keyboard.JustDown(scene.spaceBar)) {
-    if (scene.player.active) {
+    if (!scene.player.isDead) {
       shoot(scene);
     }
   }
