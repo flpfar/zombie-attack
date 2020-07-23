@@ -5,6 +5,7 @@ const gameSettings = {
   scoreLossOnHurt: 50,
   scoreGainOnKill: 15,
   scoreLossOnEnemyPass: 10,
+  startingLife: 3,
 };
 
 export default gameSettings;

@@ -4,6 +4,7 @@ import Player from './elements/Player';
 import Zombie from './elements/Zombie';
 import Shot from './elements/Shot';
 import Score from './elements/Score';
+import Life from './elements/Life';
 import handleShots from './helpers/shots-handler';
 
 class GameScene extends Phaser.Scene {
@@ -32,10 +33,10 @@ class GameScene extends Phaser.Scene {
     this.zombie4 = new Zombie(this, 'zombie2');
     this.player = new Player(this);
 
-    // create score
-    // this.scoreLabel = this.add.bitmapText(10, 10, 'pixelFont', 'SCORE: 000000', 20);
-    // this.score = 0;
+    // create score and life
     this.score = new Score(this);
+    this.life = new Life(this);
+    this.gameOver = false;
 
     // add keys and overlaps
     this.spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -53,6 +54,10 @@ class GameScene extends Phaser.Scene {
     if (player.isDead) return;
     player.die();
     this.score.hurtByEnemy();
+    this.life.playerDie();
+    if (this.gameOver) {
+      // game ends
+    }
   }
 
   hitEnemy(shot, zombie) {

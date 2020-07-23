@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import backgroundImage from '../assets/images/background.jpg';
+import lifeImage from '../assets/images/life.png';
 import shotSprite from '../assets/spritesheets/shot2.png';
 import playerDieSprite from '../assets/spritesheets/player-die.png';
 import playerMoveSprite from '../assets/spritesheets/player-move.png';
@@ -20,6 +21,7 @@ class MainScene extends Phaser.Scene {
 
   preload() {
     this.load.image('background', backgroundImage);
+    this.load.image('life', lifeImage);
 
     this.load.bitmapFont('pixelFont', pixelFontImage, pixelFontXML);
 
