@@ -12,9 +12,10 @@ class Player extends Phaser.GameObjects.Sprite {
     scene.physics.world.enableBody(this);
     this.body.setCollideWorldBounds(true);
 
-    // startPosition
+    // set properties
     this.startPositionX = startPositionX;
     this.startPositionY = startPositionY;
+    this.isDead = false;
 
     // key controls
     this.cursorKeys = scene.input.keyboard.createCursorKeys();
@@ -26,7 +27,7 @@ class Player extends Phaser.GameObjects.Sprite {
     const upKeyDown = this.cursorKeys.up.isDown;
     const downKeyDown = this.cursorKeys.down.isDown;
 
-    if (leftKeyDown || rightKeyDown || upKeyDown || downKeyDown) {
+    if ((leftKeyDown || rightKeyDown || upKeyDown || downKeyDown) && !this.isDead) {
       this.anims.play('player-move_anim', true);
 
       if (leftKeyDown) {
@@ -41,8 +42,49 @@ class Player extends Phaser.GameObjects.Sprite {
       }
     } else {
       this.body.setVelocity(0, 0);
-      this.anims.stop(null, false);
+      if (!this.isDead) {
+        this.anims.stop(null, false);
+      }
     }
+  }
+
+  resetPos() {
+    this.x = this.startPositionX;
+    this.y = gameSettings.canvasHeight + 200;
+  }
+
+  revive() {
+    this.anims.play('player-move_anim', false);
+    this.resetPos();
+
+    this.alpha = 0.5;
+
+    this.scene.tweens.add({
+      targets: this,
+      y: this.startPositionY,
+      ease: 'Power1',
+      duration: 1500,
+      repeat: 0,
+      onComplete: () => {
+        this.isDead = false;
+        this.body.enable = true;
+        this.alpha = 1;
+      },
+      callbackScope: this,
+    });
+  }
+
+  die() {
+    this.isDead = true;
+    this.body.enable = false;
+    this.anims.play('player-die_anim', true);
+
+    this.scene.time.addEvent({
+      delay: 2000,
+      callback: this.revive,
+      callbackScope: this,
+      loop: false,
+    });
   }
 }
 

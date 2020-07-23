@@ -37,12 +37,18 @@ class GameScene extends Phaser.Scene {
 
     this.spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     this.physics.add.overlap(this.shots, this.zombies, this.hitEnemy, null, this);
+    this.physics.add.overlap(this.player, this.zombies, this.hurtPlayer, null, this);
   }
 
   update() {
     this.player.moveManager();
 
     handleShots(this);
+  }
+
+  hurtPlayer(player, zombie) {
+    if (player.isDead) return;
+    player.die();
   }
 
   hitEnemy(shot, zombie) {
