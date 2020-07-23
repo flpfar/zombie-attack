@@ -25,7 +25,7 @@ const createAnimations = (scene) => {
       start: 0,
       end: 3,
     }),
-    frameRate: 5,
+    frameRate: 10,
     repeat: 0,
   });
 
@@ -45,7 +45,7 @@ const createAnimations = (scene) => {
       start: 0,
       end: 3,
     }),
-    frameRate: 5,
+    frameRate: 10,
     repeat: 0,
   });
 
@@ -65,7 +65,7 @@ const createAnimations = (scene) => {
       start: 0,
       end: 3,
     }),
-    frameRate: 5,
+    frameRate: 10,
     repeat: 0,
   });
 };

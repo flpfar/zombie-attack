@@ -64,7 +64,7 @@ class Player extends Phaser.GameObjects.Sprite {
       targets: this,
       y: this.startPositionY,
       ease: 'Power1',
-      duration: 1500,
+      duration: 1000,
       repeat: 0,
       onComplete: () => {
         this.isDead = false;
