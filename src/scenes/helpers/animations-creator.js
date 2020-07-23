@@ -3,9 +3,9 @@ const createAnimations = (scene) => {
     key: 'shot_anim',
     frames: scene.anims.generateFrameNumbers('shot', {
       start: 0,
-      end: 2,
+      end: 1,
     }),
-    frameRate: 20,
+    frameRate: 10,
     repeat: 0,
   });
 

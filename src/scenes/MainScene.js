@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import backgroundImage from '../assets/images/background.jpg';
-import shotSprite from '../assets/spritesheets/shot.png';
+import shotSprite from '../assets/spritesheets/shot2.png';
 import playerDieSprite from '../assets/spritesheets/player-die.png';
 import playerMoveSprite from '../assets/spritesheets/player-move.png';
 import playerShotSprite from '../assets/spritesheets/player-shot.png';
@@ -19,14 +19,14 @@ class MainScene extends Phaser.Scene {
   preload() {
     this.load.image('background', backgroundImage);
 
-    this.load.spritesheet('shot', shotSprite, { frameWidth: 100, frameHeight: 100 });
-    this.load.spritesheet('player-die', playerDieSprite, { frameWidth: 100, frameHeight: 100 });
-    this.load.spritesheet('player-move', playerMoveSprite, { frameWidth: 100, frameHeight: 100 });
-    this.load.spritesheet('player-shot', playerShotSprite, { frameWidth: 100, frameHeight: 100 });
-    this.load.spritesheet('zombie1-die', zombie1DieSprite, { frameWidth: 100, frameHeight: 100 });
-    this.load.spritesheet('zombie1-move', zombie1MoveSprite, { frameWidth: 100, frameHeight: 100 });
-    this.load.spritesheet('zombie2-die', zombie2DieSprite, { frameWidth: 100, frameHeight: 100 });
-    this.load.spritesheet('zombie2-move', zombie2MoveSprite, { frameWidth: 100, frameHeight: 100 });
+    this.load.spritesheet('shot', shotSprite, { frameWidth: 8, frameHeight: 100 });
+    this.load.spritesheet('player-die', playerDieSprite, { frameWidth: 100 });
+    this.load.spritesheet('player-move', playerMoveSprite, { frameWidth: 100 });
+    this.load.spritesheet('player-shot', playerShotSprite, { frameWidth: 100 });
+    this.load.spritesheet('zombie1-die', zombie1DieSprite, { frameWidth: 100 });
+    this.load.spritesheet('zombie1-move', zombie1MoveSprite, { frameWidth: 100 });
+    this.load.spritesheet('zombie2-die', zombie2DieSprite, { frameWidth: 100 });
+    this.load.spritesheet('zombie2-move', zombie2MoveSprite, { frameWidth: 100 });
   }
 
   create() {

@@ -11,6 +11,7 @@ class Player extends Phaser.GameObjects.Sprite {
     // physics
     scene.physics.world.enableBody(this);
     this.body.setCollideWorldBounds(true);
+    this.body.setSize(50, 100, 25, 0);
 
     // set properties
     this.startPositionX = startPositionX;

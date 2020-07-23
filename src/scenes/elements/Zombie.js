@@ -12,6 +12,9 @@ class Zombie extends Phaser.GameObjects.Sprite {
 
     // physics
     scene.physics.world.enableBody(this);
+    if (zombie === 'zombie2') {
+      this.body.setSize(50, 100, 25, 0);
+    }
 
     // add to group
     scene.zombies.add(this);
