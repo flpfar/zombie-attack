@@ -58,6 +58,8 @@ class Player extends Phaser.GameObjects.Sprite {
     this.anims.play('player-move_anim', false);
     this.resetPos();
 
+    this.isDead = false;
+
     this.alpha = 0.5;
 
     this.scene.tweens.add({
@@ -67,9 +69,8 @@ class Player extends Phaser.GameObjects.Sprite {
       duration: 1000,
       repeat: 0,
       onComplete: () => {
-        this.isDead = false;
-        this.body.enable = true;
         this.alpha = 1;
+        this.body.enable = true;
       },
       callbackScope: this,
     });

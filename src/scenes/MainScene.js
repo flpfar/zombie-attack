@@ -8,6 +8,8 @@ import zombie1DieSprite from '../assets/spritesheets/zombie1-die.png';
 import zombie1MoveSprite from '../assets/spritesheets/zombie1-move.png';
 import zombie2DieSprite from '../assets/spritesheets/zombie2-die.png';
 import zombie2MoveSprite from '../assets/spritesheets/zombie2-move.png';
+import pixelFontImage from '../assets/font/font.png';
+import pixelFontXML from '../assets/font/font.xml';
 
 import createAnimations from './helpers/animations-creator';
 
@@ -18,6 +20,8 @@ class MainScene extends Phaser.Scene {
 
   preload() {
     this.load.image('background', backgroundImage);
+
+    this.load.bitmapFont('pixelFont', pixelFontImage, pixelFontXML);
 
     this.load.spritesheet('shot', shotSprite, { frameWidth: 8, frameHeight: 100 });
     this.load.spritesheet('player-die', playerDieSprite, { frameWidth: 100 });
@@ -30,8 +34,8 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start('gameScene');
     createAnimations(this);
+    this.scene.start('gameScene');
   }
 }
 
