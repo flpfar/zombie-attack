@@ -50,13 +50,13 @@ class GameScene extends Phaser.Scene {
     handleShots(this);
   }
 
-  hurtPlayer(player) {
-    if (player.isDead) return;
+  hurtPlayer(player, zombie) {
+    if (player.isDead || zombie.isDead) return;
     player.die();
     this.score.hurtByEnemy();
     this.life.playerDie();
     if (this.gameOver) {
-      // game ends
+      this.scene.start('gameOverScene');
     }
   }
 
