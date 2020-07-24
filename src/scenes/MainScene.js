@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import backgroundImage from '../assets/images/background.jpg';
+import authorImage from '../assets/images/author2.png';
 import logoImage from '../assets/images/logo.png';
 import buttonImage from '../assets/images/button.png';
 import buttonClickedImage from '../assets/images/button-clicked.png';
@@ -25,6 +26,7 @@ class MainScene extends Phaser.Scene {
 
   preload() {
     this.load.image('background', backgroundImage);
+    this.load.image('author', authorImage);
     this.load.image('life', lifeImage);
     this.load.image('button', buttonImage);
     this.load.image('button-clicked', buttonClickedImage);

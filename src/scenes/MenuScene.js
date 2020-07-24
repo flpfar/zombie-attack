@@ -21,6 +21,14 @@ class MenuScene extends Phaser.Scene {
     });
 
     this.creditsButton = new Button(this, (gameSettings.canvasWidth / 4), gameSettings.canvasHeight / 2 - 20, 'Credits', 0.4, 20);
+    this.creditsButton.button.on('pointerdown', () => {
+      this.time.addEvent({
+        delay: 300,
+        callback: () => { this.scene.start('creditsScene'); },
+        callbackScope: this,
+        loop: false,
+      });
+    });
   }
 }
 
