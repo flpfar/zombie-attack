@@ -1,4 +1,13 @@
 import Phaser from 'phaser';
 import config from './config';
+import Preferences from './Preferences';
 
-const game = new Phaser.Game(config); // eslint-disable-line no-unused-vars
+class Game extends Phaser.Game {
+  constructor() {
+    super(config);
+    const preferences = new Preferences();
+    this.globals = { preferences };
+  }
+}
+
+window.game = new Game();

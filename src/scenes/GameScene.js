@@ -58,7 +58,10 @@ class GameScene extends Phaser.Scene {
     if (this.gameOver) {
       this.time.addEvent({
         delay: 1800,
-        callback: () => { this.scene.start('gameOverScene'); },
+        callback: () => {
+          this.sys.game.globals.preferences.playerScore = this.score.score;
+          this.scene.start('gameOverScene');
+        },
         callbackScope: this,
         loop: false,
       });

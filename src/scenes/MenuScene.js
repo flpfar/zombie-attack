@@ -22,7 +22,10 @@ class MenuScene extends Phaser.Scene {
     this.startButton.button.on('pointerdown', () => {
       this.time.addEvent({
         delay: 300,
-        callback: () => { this.scene.start('gameScene'); },
+        callback: () => {
+          this.sys.game.globals.preferences.playerName = this.playerNameInput.text;
+          this.scene.start('gameScene');
+        },
         callbackScope: this,
         loop: false,
       });
