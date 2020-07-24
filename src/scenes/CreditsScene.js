@@ -12,9 +12,7 @@ class CreditsScene extends Phaser.Scene {
 
     this.createText(gameSettings.canvasWidth / 2, 286, 'created by:', 26);
     this.createText(gameSettings.canvasWidth / 2 + 28, 320, 'FELIPE ROSA', 40);
-
-    const author = this.add.image(158, 300, 'author');
-    // author.setScale(0.5);
+    this.add.image(158, 300, 'author');
 
     this.mainMenuButton = new Button(this, (gameSettings.canvasWidth / 4), (gameSettings.canvasHeight / 2) - 25, 'Main Menu', 0.5);
     this.mainMenuButton.button.on('pointerdown', () => {

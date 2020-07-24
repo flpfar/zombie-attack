@@ -56,7 +56,12 @@ class GameScene extends Phaser.Scene {
     this.score.hurtByEnemy();
     this.life.playerDie();
     if (this.gameOver) {
-      this.scene.start('gameOverScene');
+      this.time.addEvent({
+        delay: 1800,
+        callback: () => { this.scene.start('gameOverScene'); },
+        callbackScope: this,
+        loop: false,
+      });
     }
   }
 
