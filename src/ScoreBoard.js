@@ -9,7 +9,7 @@ class ScoreBoard {
   }
 
   async submitScore(player, score) {
-    const scoreObject = { useras: player, score };
+    const scoreObject = { user: player, score };
     const response = await fetch(this.url, {
       mode: 'cors',
       method: 'POST',

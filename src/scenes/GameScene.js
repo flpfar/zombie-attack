@@ -59,7 +59,13 @@ class GameScene extends Phaser.Scene {
       this.time.addEvent({
         delay: 1800,
         callback: () => {
-          this.sys.game.globals.preferences.playerScore = this.score.score;
+          const playerScore = this.score.score;
+          const { playerName } = this.sys.game.globals.preferences;
+          if (playerScore > 0) {
+            this.sys.game.globals.scores.push({ user: playerName, score: playerScore });
+            this.sys.game.globals.scoreBoard.submitScore(playerName, playerScore);
+            this.sys.game.globals.preferences.playerScore = this.score.score;
+          }
           this.scene.start('gameOverScene');
         },
         callbackScope: this,

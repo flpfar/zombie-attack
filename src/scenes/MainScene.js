@@ -45,7 +45,7 @@ class MainScene extends Phaser.Scene {
     this.load.spritesheet('zombie2-move', zombie2MoveSprite, { frameWidth: 100 });
 
     const scores = this.sys.game.globals.scoreBoard.getScores();
-    scores.then((response) => { this.sys.game.globals.scores = response; });
+    scores.then((response) => { this.sys.game.globals.scores = response.result; });
   }
 
   create() {
