@@ -1,7 +1,9 @@
 import Phaser from 'phaser';
 import backgroundImage from '../assets/images/background.jpg';
+import logoImage from '../assets/images/logo.png';
 import buttonImage from '../assets/images/button.png';
 import buttonClickedImage from '../assets/images/button-clicked.png';
+import buttonHoverImage from '../assets/images/button-hover.png';
 import lifeImage from '../assets/images/life.png';
 import shotSprite from '../assets/spritesheets/shot2.png';
 import playerDieSprite from '../assets/spritesheets/player-die.png';
@@ -26,6 +28,8 @@ class MainScene extends Phaser.Scene {
     this.load.image('life', lifeImage);
     this.load.image('button', buttonImage);
     this.load.image('button-clicked', buttonClickedImage);
+    this.load.image('button-hover', buttonHoverImage);
+    this.load.image('logo', logoImage);
 
     this.load.bitmapFont('pixelFont', pixelFontImage, pixelFontXML);
 
@@ -41,7 +45,7 @@ class MainScene extends Phaser.Scene {
 
   create() {
     createAnimations(this);
-    this.scene.start('gameScene');
+    this.scene.start('menuScene');
   }
 }
 
