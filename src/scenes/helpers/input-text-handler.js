@@ -7,6 +7,8 @@ const testKeys = (e) => {
     && e.key !== 'Tab'
     && e.key !== 'Control'
     && e.key !== 'Dead'
+    && !(e.keyCode >= 37 && e.keyCode <= 40) // disable arrows
+    && !(e.keyCode >= 112 && e.keyCode <= 123) // disable FN
   ) {
     return true;
   }
