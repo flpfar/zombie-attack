@@ -9,6 +9,9 @@ class ScoreBoard {
   }
 
   async submitScore(player, score) {
+    if (typeof player !== 'string' || typeof score !== 'number') {
+      return { result: 'Invalid arguments.' };
+    }
     const scoreObject = { user: player, score };
     const response = await fetch(this.url, {
       mode: 'cors',
