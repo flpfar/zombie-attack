@@ -52,7 +52,7 @@ class GameScene extends Phaser.Scene {
   }
 
   hurtPlayer(player, zombie) {
-    if (player.isDead || zombie.isDead) return;
+    if (player.isDead || player.alpha < 1 || zombie.isDead) return;
     player.die();
     this.score.hurtByEnemy();
     this.life.playerDie();
