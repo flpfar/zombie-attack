@@ -3,7 +3,7 @@ const gameSettings = {
   canvasHeight: 544,
   playerSpeed: 200,
   scoreGainOnKill: 20,
-  scoreLossOnHurt: 100,
+  scoreLossOnHurt: 0,
   scoreLossOnEnemyPass: 40,
   scoreLossOnMissedShot: 20,
   startingLife: 3,

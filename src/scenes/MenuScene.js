@@ -18,23 +18,38 @@ class MenuScene extends Phaser.Scene {
     inputTextHandler.handleInput(this, this.playerNameInput, this.playerName);
 
     // buttons
-    this.startButton = new Button(this, (gameSettings.canvasWidth / 4), gameSettings.canvasHeight / 2 - 60, 'Play', 0.7);
-    this.startButton.button.on('pointerdown', () => {
-      this.time.addEvent({
-        delay: 300,
-        callback: () => {
-          this.sys.game.globals.preferences.playerName = this.playerNameInput.text;
-          this.scene.start('gameScene');
-        },
-        callbackScope: this,
-        loop: false,
-      });
+    this.createButtons();
+  }
+
+  createButtons() {
+    this.createStartButton();
+    this.createInstructionsButton();
+    this.createCreditsButton();
+  }
+
+  createStartButton() {
+    this.startButton = new Button(this, (gameSettings.canvasWidth / 4), gameSettings.canvasHeight / 2 - 82, 'Play', 0.7);
+    this.createClickEvent(this.startButton, () => {
+      this.sys.game.globals.preferences.playerName = this.playerNameInput.text;
+      this.scene.start('gameScene');
     });
+  }
+
+  createInstructionsButton() {
+    this.instructionsButton = new Button(this, (gameSettings.canvasWidth / 4), gameSettings.canvasHeight / 2 - 54, 'Instructions', 0.5, 20);
+    this.createClickEvent(this.instructionsButton, () => { this.scene.start('instructionsScene'); });
+  }
+
+  createCreditsButton() {
     this.creditsButton = new Button(this, (gameSettings.canvasWidth / 4), gameSettings.canvasHeight / 2 - 30, 'Credits', 0.5, 20);
-    this.creditsButton.button.on('pointerdown', () => {
+    this.createClickEvent(this.creditsButton, () => { this.scene.start('creditsScene'); });
+  }
+
+  createClickEvent(button, functionToCall) {
+    button.button.on('pointerdown', () => {
       this.time.addEvent({
         delay: 300,
-        callback: () => { this.scene.start('creditsScene'); },
+        callback: functionToCall,
         callbackScope: this,
         loop: false,
       });
