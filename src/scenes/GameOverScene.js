@@ -61,14 +61,6 @@ class GameOverScene extends Phaser.Scene {
     const newText = this.add.bitmapText(x, y, 'pixelFont', text, size);
     newText.setOrigin(origin, origin === 1 ? 0 : origin);
   }
-
-  formatZeros() {
-    let stringNumber = String(this.score);
-    while (stringNumber.length < (6 || 2)) {
-      stringNumber = `0${stringNumber}`;
-    }
-    return stringNumber;
-  }
 }
 
 export default GameOverScene;
