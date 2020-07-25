@@ -17,6 +17,7 @@ class Shot extends Phaser.GameObjects.Sprite {
 
   update() {
     if (this.y < 100) {
+      this.scene.score.missedShot();
       this.destroy();
     }
   }

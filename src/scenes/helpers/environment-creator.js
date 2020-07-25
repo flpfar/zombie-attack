@@ -5,8 +5,6 @@ const createBackground = (scene) => {
   scene.background.setOrigin(0, 0);
 };
 
-const createMusic = () => {
+const createRandomZombie = () => `zombie${Math.floor(Math.random() * 2) + 1}`;
 
-};
-
-export { createBackground, createMusic };
+export { createBackground, createRandomZombie };

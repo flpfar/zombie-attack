@@ -1,15 +1,17 @@
 import Phaser from 'phaser';
-import { createBackground } from './helpers/environment-creator';
+import { createBackground, createRandomZombie } from './helpers/environment-creator';
 import Player from './elements/Player';
 import Zombie from './elements/Zombie';
 import Shot from './elements/Shot';
 import Score from './elements/Score';
 import Life from './elements/Life';
 import handleShots from './helpers/shots-handler';
+import gameSettings from '../game-settings';
 
 class GameScene extends Phaser.Scene {
   constructor() {
     super('gameScene');
+    this.difficulty = 1;
   }
 
   create() {
@@ -27,10 +29,9 @@ class GameScene extends Phaser.Scene {
     });
 
     // create zombies and players
-    this.zombie1 = new Zombie(this, 'zombie1');
-    this.zombie2 = new Zombie(this, 'zombie2');
-    this.zombie3 = new Zombie(this, 'zombie1');
-    this.zombie4 = new Zombie(this, 'zombie2');
+    for (let i = 0; i < 4; i += 1) {
+      const zombie = new Zombie(this, createRandomZombie()); // eslint-disable-line no-unused-vars
+    }
     this.player = new Player(this);
 
     // create score and life
@@ -79,6 +80,14 @@ class GameScene extends Phaser.Scene {
     shot.destroy();
     zombie.die();
     this.score.hitEnemy();
+    this.handleDifficulty();
+  }
+
+  handleDifficulty() {
+    if (this.score.score / gameSettings.increaseDifficultyEach >= this.difficulty) {
+      const zombie = new Zombie(this, createRandomZombie()); // eslint-disable-line no-unused-vars
+      this.difficulty += 1;
+    }
   }
 }
 

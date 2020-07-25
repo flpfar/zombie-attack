@@ -17,6 +17,12 @@ class Score extends Phaser.GameObjects.Container {
     this.updateLabel();
   }
 
+  missedShot() {
+    const newScore = this.score - gameSettings.scoreLossOnMissedShot;
+    this.score = (newScore > 0) ? newScore : 0;
+    this.updateLabel();
+  }
+
   hurtByEnemy() {
     const newScore = this.score - gameSettings.scoreLossOnHurt;
     this.score = (newScore > 0) ? newScore : 0;
