@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import gameSettings from '../../game-settings';
+import formatZeros from '../helpers/output-formatter';
 
 class Score extends Phaser.GameObjects.Container {
   constructor(scene) {
@@ -28,15 +29,7 @@ class Score extends Phaser.GameObjects.Container {
   }
 
   updateLabel() {
-    this.scoreLabel.text = `SCORE: ${this.formatZeros()}`;
-  }
-
-  formatZeros() {
-    let stringNumber = String(this.score);
-    while (stringNumber.length < (6 || 2)) {
-      stringNumber = `0${stringNumber}`;
-    }
-    return stringNumber;
+    this.scoreLabel.text = `SCORE: ${formatZeros(this.score)}`;
   }
 }
 

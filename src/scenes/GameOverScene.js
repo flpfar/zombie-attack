@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import gameSettings from '../game-settings';
 import Button from './elements/Button';
+import formatZeros from './helpers/output-formatter';
 
 class GameOverScene extends Phaser.Scene {
   constructor() {
@@ -8,13 +9,11 @@ class GameOverScene extends Phaser.Scene {
   }
 
   create() {
-    const text = this.add.bitmapText(0, 0, 'pixelFont', 'GAME OVER', 50);
-    text.setPosition((gameSettings.canvasWidth / 4) + text.width / 4, 40);
-    this.spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.createText(gameSettings.canvasWidth / 2, 80, '--= GAME OVER =--', 50);
 
-    this.spaceBar.on('down', () => {
-      this.scene.start('gameScene');
-    });
+    this.createText(gameSettings.canvasWidth / 2, 140, `YOUR SCORE: ${this.sys.game.globals.preferences.playerScore}`, 34);
+
+    this.createScoreBoard();
 
     this.restartButton = new Button(this,
       (gameSettings.canvasWidth / 4), (gameSettings.canvasHeight / 2) - 60, 'Play Again', 0.8);
@@ -28,6 +27,11 @@ class GameOverScene extends Phaser.Scene {
       });
     });
 
+    this.spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.spaceBar.on('down', () => {
+      this.scene.start('gameScene');
+    });
+
     this.mainMenuButton = new Button(this, (gameSettings.canvasWidth / 4), (gameSettings.canvasHeight / 2) - 25, 'Main Menu', 0.5);
 
     this.mainMenuButton.button.on('pointerdown', () => {
@@ -38,6 +42,32 @@ class GameOverScene extends Phaser.Scene {
         loop: false,
       });
     });
+  }
+
+  createScoreBoard() {
+    const scores = this.sys.game.globals.scores.sort((a, b) => b.score - a.score).slice(0, 5);
+    let height = 200;
+    this.createText(gameSettings.canvasWidth / 2 - 10, height, 'TOP 5 PLAYER', 24, 1);
+    this.createText(gameSettings.canvasWidth / 2 + 10, height, 'SCORE', 24, 0);
+    height += 10;
+    scores.forEach(player => {
+      height += 20;
+      this.createText(gameSettings.canvasWidth / 2 - 10, height, player.user.toUpperCase(), 20, 1);
+      this.createText(gameSettings.canvasWidth / 2 + 10, height, formatZeros(player.score), 20, 0);
+    });
+  }
+
+  createText(x, y, text, size, origin = 0.5) {
+    const newText = this.add.bitmapText(x, y, 'pixelFont', text, size);
+    newText.setOrigin(origin, origin === 1 ? 0 : origin);
+  }
+
+  formatZeros() {
+    let stringNumber = String(this.score);
+    while (stringNumber.length < (6 || 2)) {
+      stringNumber = `0${stringNumber}`;
+    }
+    return stringNumber;
   }
 }
 
