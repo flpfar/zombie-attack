@@ -78,6 +78,13 @@ The player has 3 lives that are subtracted by 1 each time he is touched by a zom
 - Run `npm test`
 - (Optional) Run `npm test -- --verbose` to check test details
 
+## Potential Features
+
+- Scoreboard button in MenuScene
+- Powerful bullets bonus
+- Soundtrack
+- Random background each game
+- Mobile compatibility
 
 ## 👤 Author
 
