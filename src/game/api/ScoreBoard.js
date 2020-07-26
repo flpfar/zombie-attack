@@ -1,6 +1,6 @@
 class ScoreBoard {
   constructor() {
-    this.url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/BiQkVIz20r8CaWU60x2P/scores/';
+    this.url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/qp2XgNWuPWCENDXSsetv/scores/';
   }
 
   async getScores() {
