@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import gameSettings from '../game/settings/game-settings';
-import Button from '../game/elements/Button';
-import * as inputTextHandler from '../game/helpers/input-text-handler';
+import gameSettings from '../settings/game-settings';
+import Button from '../elements/Button';
+import * as inputTextHandler from '../helpers/input-text-handler';
 
 class MenuScene extends Phaser.Scene {
   constructor() {
