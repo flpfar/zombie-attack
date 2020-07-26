@@ -28,7 +28,9 @@ class Zombie extends Phaser.GameObjects.Sprite {
 
   update() {
     if (this.y > gameSettings.canvasHeight) {
-      this.scene.score.enemyPass();
+      if (this.scene.player.alpha === 1) {
+        this.scene.score.enemyPass();
+      }
       this.resetPos();
     }
   }
