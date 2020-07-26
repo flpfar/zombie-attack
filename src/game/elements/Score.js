@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import gameSettings from '../../game-settings';
+import gameSettings from '../settings/game-settings';
 import formatZeros from '../helpers/output-formatter';
 
 class Score extends Phaser.GameObjects.Container {

@@ -17,7 +17,7 @@ import zombie2MoveSprite from '../assets/spritesheets/zombie2-move.png';
 import pixelFontImage from '../assets/font/font.png';
 import pixelFontXML from '../assets/font/font.xml';
 
-import createAnimations from './helpers/animations-creator';
+import createAnimations from '../game/helpers/animations-creator';
 
 class MainScene extends Phaser.Scene {
   constructor() {

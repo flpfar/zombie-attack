@@ -1,4 +1,4 @@
-import formatZeros from '../src/scenes/helpers/output-formatter';
+import formatZeros from '../src/game/helpers/output-formatter';
 
 describe('Output formatter helper', () => {
   describe("FormatZeros gets a number and returns it as a string with 0's prefix", () => {

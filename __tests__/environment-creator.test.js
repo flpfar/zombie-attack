@@ -1,4 +1,4 @@
-import * as environmentCreator from '../src/scenes/helpers/environment-creator';
+import * as environmentCreator from '../src/game/helpers/environment-creator';
 
 describe('Environment creator helper', () => {
   describe('createRandomZombie', () => {

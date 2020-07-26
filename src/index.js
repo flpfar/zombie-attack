@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import config from './config';
-import Preferences from './Preferences';
-import ScoreBoard from './ScoreBoard';
+import config from './game/settings/config';
+import Preferences from './game/settings/Preferences';
+import ScoreBoard from './game/api/ScoreBoard';
 
 
 class Game extends Phaser.Game {

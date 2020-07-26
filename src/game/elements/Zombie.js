@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import gameSettings from '../../game-settings';
+import gameSettings from '../settings/game-settings';
 
 class Zombie extends Phaser.GameObjects.Sprite {
   constructor(scene, zombie) {

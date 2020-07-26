@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import gameSettings from '../game-settings';
-import Button from './elements/Button';
-import formatZeros from './helpers/output-formatter';
+import gameSettings from '../game/settings/game-settings';
+import Button from '../game/elements/Button';
+import formatZeros from '../game/helpers/output-formatter';
 
 class GameOverScene extends Phaser.Scene {
   constructor() {

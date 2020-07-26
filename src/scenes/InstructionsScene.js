@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import gameSettings from '../game-settings';
-import Button from './elements/Button';
+import gameSettings from '../game/settings/game-settings';
+import Button from '../game/elements/Button';
 
 class InstructionsScene extends Phaser.Scene {
   constructor() {

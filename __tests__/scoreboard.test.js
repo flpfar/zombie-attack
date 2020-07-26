@@ -1,4 +1,4 @@
-import ScoreBoard from '../src/ScoreBoard';
+import ScoreBoard from '../src/game/api/ScoreBoard';
 
 const mockToGetScores = () => {
   global.fetch = jest.fn(() => ({

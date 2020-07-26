@@ -1,12 +1,12 @@
 import Phaser from 'phaser';
-import { createBackground, createRandomZombie } from './helpers/environment-creator';
-import Player from './elements/Player';
-import Zombie from './elements/Zombie';
-import Shot from './elements/Shot';
-import Score from './elements/Score';
-import Life from './elements/Life';
-import handleShots from './helpers/shots-handler';
-import gameSettings from '../game-settings';
+import { createBackground, createRandomZombie } from '../game/helpers/environment-creator';
+import Player from '../game/elements/Player';
+import Zombie from '../game/elements/Zombie';
+import Shot from '../game/elements/Shot';
+import Score from '../game/elements/Score';
+import Life from '../game/elements/Life';
+import handleShots from '../game/helpers/shots-handler';
+import gameSettings from '../game/settings/game-settings';
 
 class GameScene extends Phaser.Scene {
   constructor() {
