@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import './assets/styles/style.css';
 import config from './game/settings/config';
 import Preferences from './game/settings/Preferences';
 import ScoreBoard from './game/api/ScoreBoard';
