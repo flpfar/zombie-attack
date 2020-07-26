@@ -69,9 +69,9 @@ The player has 3 lives that are subtracted by 1 each time he is touched by a zom
 - Clone this repository with: `git clone https://github.com/flpfar/zombie-attack.git`
 - Navigate to the project folder `cd zombie-attack`
 - Run `npm install`
-- Run `npm run build`
-- Run `npm start`
-- Open the URL `http://localhost:8080` in the browser and have fun!
+- Run `npm start`. It will build the project and automatically open your browser in the game page.
+- Have fun!
+- (Optional) Run `npm run build` to create the `dist` folder for deployment.
 
 ### Tests
 
