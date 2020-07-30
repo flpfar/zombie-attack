@@ -1,11 +1,17 @@
-import Phaser from "phaser";
+import Phaser from 'phaser';
+import './assets/styles/style.css';
+import config from './game/settings/config';
+import Preferences from './game/settings/Preferences';
+import ScoreBoard from './game/api/ScoreBoard';
 
-const config = {
-  type: Phaser.AUTO,
-  width: 800,
-  height: 600,
-  scene: {}
-};
 
-const game = new Phaser.Game(config);
+class Game extends Phaser.Game {
+  constructor() {
+    super(config);
+    const preferences = new Preferences();
+    const scoreBoard = new ScoreBoard();
+    this.globals = { preferences, scoreBoard };
+  }
+}
 
+window.game = new Game();
